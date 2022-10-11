@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super() }}
+Bienvenido
+{% endblock title %}
+{% block content %}
+{{ super() }}
+<h4 class="text-center">{{message}}</h4>
+<div class="row text-center">
+    <div class="col">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <h5 class="card-title text-center display-4">Sube tu imagen</h5>
+                <form action="/erase_bckgnd" method="post" enctype="multipart/form-data">
+                    <ul class="list-group list-group-item-heading">
+                        <li class="list-group-item">
+                            <label> Imagen </label>
+                        </li>
+                        <li class="list-group list-group-item">
+                            <input type="file" class="form-control-file btn boton normal" id="img" name="img"
+                                required />
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <button class="btn button" type="submit">
+                                Borrar fondo
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

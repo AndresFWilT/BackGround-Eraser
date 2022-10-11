@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super() }}
+Imagen borrada
+{% endblock title %}
+{% block content %}
+{{ super() }}
+<div class="row text-center">
+    <div class="col">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <h5 class="card-title text-center display-4">Descarga la imagen sin fondo</h5>
+                <form action="/download_image" method="post" enctype="multipart/form-data">
+                    <ul class="list-group list-group-item-heading">
+                        <li class="list-group-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <label> Imagen original </label>
+                                        <div class="align-items-center">
+                                            <figure id="photo" title="Imagen original" tooltip-dir="top">
+                                                <img src="static\images\{{in_name}}" width="250" height="250" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label> Imagen sin fondo </label>
+                                        <div class="align-items-center">
+                                            <figure id="photo" title="Imagen sin fondo" tooltip-dir="top">
+                                                <img src="static\images\{{out_name}}" width="250" height="250" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <input type="hidden" class="form-control-file btn boton normal" value="{{ del_path }}"
+                            name="output" id="output" required />
+                        <input type="hidden" class="form-control-file btn boton normal" value="{{ in_path }}"
+                            name="input" id="input" required />
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <button class="btn button" type="submit">
+                                Descargar imagen
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
